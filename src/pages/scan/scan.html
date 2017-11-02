@@ -1,0 +1,15 @@
+<ion-content padding class="Scan">
+  <div *ngIf="api.scan">
+    {{api.scan.text}}
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Scan your QR Code Here</h2>
+    </div>
+    <div class="col">
+      <h3>{{eventTitle}}</h3>
+    </div>
+  </div>
+  <button ion-button block color="secondary" class="Scan-button" (click)="scanQR()" [disabled]="loading">{{buttonText}}</button>
+  <button ion-button block color="dark" class="Scan-button" (click)="goBack()" >Go Back</button>
+</ion-content>

@@ -1,0 +1,72 @@
+<!--<ion-header no-shadow>-->
+  <!--<ion-navbar>-->
+    <!--<ion-buttons end *ngIf="showSkip">-->
+      <!--<button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>-->
+    <!--</ion-buttons>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-content no-bounce>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-lg-8 col-xl-8>
+        <ion-row>
+          <img [src]="slide.image" class="top-logo" />
+          <span *ngIf="api.packages">
+            <ion-auto-complete class='search-bar' (keyup)="onChange($event)" [dataProvider]="filter" (itemSelected)="itemSelected($event)" (autocomplete)="off" [options]="{ placeholder : 'Search Apartment', autocomplete: 'off' }"></ion-auto-complete>
+            <ion-fab top right >
+              <button ion-fab color="primary" (click)="recordDelivery()" class="add-btn" icon><ion-icon name="add"></ion-icon></button>
+            </ion-fab>
+          </span>
+          <ion-item>
+            <!--<ion-label color="primary">Inline Label</ion-label>-->
+
+            <!--<ion-input placeholder="Search Apartment" type="text" [(ngModel)]="searchText" (keyup)="onChange($event)"></ion-input>-->
+          </ion-item>
+        </ion-row>
+        <ion-row *ngIf="api.packages">
+          <ion-list *ngIf="filter.searchText">
+            <ion-item *ngFor="let package of api.newPackages" (click)="recordPickup(package.apartment_no.number)">
+              <ion-avatar item-start *ngIf="package.package_type=='Envelope'">
+                <ion-icon name="mail"></ion-icon>
+              </ion-avatar>
+              <ion-avatar item-start *ngIf="package.package_type=='Small Box'">
+                <ion-icon name="albums"></ion-icon>
+              </ion-avatar>
+              <ion-avatar item-start *ngIf="package.package_type=='Large Box'">
+                <ion-icon name="cube"></ion-icon>
+              </ion-avatar>
+              <h2>{{package.apartment_no.number}}</h2>
+              <h3>{{package.recipient.name}}</h3>
+            </ion-item>
+          </ion-list>
+          <ion-list *ngIf="!filter.searchText">
+            <ion-item *ngFor="let package of api.packages" (click)="recordPickup(package.apartment_no.number)">
+              <ion-avatar item-start *ngIf="package.package_type=='Envelope'">
+                <ion-icon name="mail"></ion-icon>
+              </ion-avatar>
+              <ion-avatar item-start *ngIf="package.package_type=='Small Box'">
+                <ion-icon name="albums"></ion-icon>
+              </ion-avatar>
+              <ion-avatar item-start *ngIf="package.package_type=='Large Box'">
+                <ion-icon name="cube"></ion-icon>
+              </ion-avatar>
+              <h2>{{package.apartment_no.number}}</h2>
+              <h3>{{package.recipient.name}}</h3>
+            </ion-item>
+          </ion-list>
+          <h1 *ngIf="api.packages.length < 1">
+            No packages available for pickup!
+          </h1>
+      </ion-row>
+      <ion-row *ngIf="!api.packages">
+        <h4>Loading...</h4>
+      </ion-row>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-content>

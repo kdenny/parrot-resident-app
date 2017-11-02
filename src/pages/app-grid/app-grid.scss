@@ -1,0 +1,68 @@
+page-app-grid {
+  .toolbar-background {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .slide-zoom {
+    height: 100%;
+  }
+
+  .button-label {
+    text-align: center;
+  }
+
+  .inactive {
+    color: lightgray;
+  }
+
+  .search-bar {
+    width: 90vw;
+    display: inline-block;
+    z-index: 20;
+  }
+
+  .add-btn {
+    display: inline-block;
+    font-size: 3.4rem;
+    margin-top: 19.5vh;
+    z-index: 1;
+  }
+
+  .fab-ios-primary {
+    background-color: black;
+  }
+
+  .button-icon {
+    font-size: 80px;
+    text-align: center;
+  }
+
+
+
+  .slide-title {
+    margin-top: 2.8rem;
+  }
+
+  .top-logo {
+    max-height: 40vh;
+    max-width: 100%;
+    margin: 0 0;
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #60646B;
+
+    b {
+      color: #000000;
+    }
+  }
+
+}
