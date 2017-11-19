@@ -1,0 +1,26 @@
+<ion-content scroll="false">
+  <form (ngSubmit)="dismiss()">
+    <ion-item>
+      <ion-label>Resident</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.resident.name" name="name" [readonly]="true">{{todo.resident.name}}</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apartment Number</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.apartment_no" name="apt_number" [readonly]="true">{{todo.apartment_no}}</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <ion-select [(ngModel)]="todo.category" name="category">
+        <ion-option value="1">Kitchen</ion-option>
+        <ion-option value="2">Bathroom</ion-option>
+        <ion-option value="3">Heat or A/C</ion-option>
+        <ion-option value="4">Electrical</ion-option>
+        <ion-option value="5">Drywall</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [(ngModel)]="todo.description" name="description" placeholder="(Optional) Enter a description of the issue"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Add Todo</button>
+  </form>
+</ion-content>

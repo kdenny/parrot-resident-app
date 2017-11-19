@@ -1,0 +1,44 @@
+<!--<ion-header no-shadow>-->
+  <!--<ion-navbar>-->
+    <!--<ion-buttons end *ngIf="showSkip">-->
+      <!--<button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>-->
+    <!--</ion-buttons>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<ion-content no-bounce>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-lg-8 col-xl-8>
+        <ion-row>
+          <img [src]="slide.image" class="top-logo" (click)="goToGrid()"/>
+        </ion-row>
+        <div padding>
+          <button ion-button color="primary" (click)="newItem()" block>New maintenance request</button>
+        </div>
+        <h1 *ngIf="maintenance.currentItems">{{maintenance.currentItems.length}} current maintenance items</h1>
+        <ion-row *ngIf="maintenance.currentItems">
+          <ion-list>
+            <ion-item *ngFor="let item of maintenance.currentItems" style="border: 1px solid black">
+              Category: {{item.category.name}} <br>
+              Description: {{item.description}} <br>
+              Submitted: {{item.date_submitted | date:'medium'}}
+            </ion-item>
+          </ion-list>
+          <h1 *ngIf="!maintenance.currentItems">
+            No current maintenance items :)
+          </h1>
+        </ion-row>
+        <ion-row>
+          <div padding>
+            <button ion-button color="primary" (click)="viewHistorical()" block>View Past Requests</button>
+          </div>
+        </ion-row>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+</ion-content>

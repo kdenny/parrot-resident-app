@@ -144,4 +144,11 @@ export class HomePage implements OnInit{
 
   }
 
+  goToGrid() {
+    this.navCtrl.setRoot('GridPage', {}, {
+            animate: true,
+            direction: 'back'
+          });
+  }
+
 }

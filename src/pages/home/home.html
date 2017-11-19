@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col col-lg-8 col-xl-8>
         <ion-row>
-          <img [src]="slide.image" class="top-logo" />
+          <img [src]="slide.image" class="top-logo" (click)="goToGrid()"/>
           <span *ngIf="api.packages">
             <ion-auto-complete class='search-bar' (keyup)="onChange($event)" [dataProvider]="filter" (itemSelected)="itemSelected($event)" (autocomplete)="off" [options]="{ placeholder : 'Search Apartment', autocomplete: 'off' }"></ion-auto-complete>
             <ion-fab top right >

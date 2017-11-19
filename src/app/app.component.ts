@@ -33,6 +33,7 @@ export class MyApp {
   pages: any[] = [
     { title: 'Home', component: 'HomePage' },
     { title: 'Delivery', component: 'DeliveryPage' },
+    { title: 'Maintenance', component: 'MaintenancePage' },
     { title: 'Pickup', component: 'PickupModal'},
     { title: 'Scan', component: 'ScanPage'},
     { title: 'App Grid', component: 'GridPage'},

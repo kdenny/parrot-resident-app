@@ -11,10 +11,12 @@ import { SignaturePadModule } from 'angular2-signaturepad';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
+import { MaintenanceApi } from '../providers/providers';
 import { ApartmentAutocompleteService } from '../providers/providers';
 import { ApartmentFilterService } from '../providers/providers';
 import { MyApp } from './app.component';
 import {PickupModal} from '../pages/pickup/pickup';
+import {NewMaintenanceRequestModal} from '../pages/maintenance/new-request/new-request';
 import { ScanPage } from '../pages/scan/scan';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
@@ -38,6 +40,7 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     PickupModal,
+    NewMaintenanceRequestModal,
     ScanPage
   ],
   imports: [
@@ -51,10 +54,12 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     PickupModal,
+    NewMaintenanceRequestModal,
     ScanPage
   ],
   providers: [
     Api,
+    MaintenanceApi,
     User,
     Camera,
     ApartmentAutocompleteService,

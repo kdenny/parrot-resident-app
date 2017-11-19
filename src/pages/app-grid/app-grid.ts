@@ -33,12 +33,14 @@ export class GridPage implements OnInit{
       {
         name: 'Maintenance',
         link: "/maintenance",
-        icon: 'assets/img/maintenance.png'
+        icon: 'assets/img/maintenance.png',
+        pageName: "MaintenancePage"
       },
       {
         name: 'Packages',
         link: "/packages",
-        icon: 'assets/img/package.png'
+        icon: 'assets/img/package.png',
+        pageName: "HomePage"
       },
       {
         name: 'Other app here',
@@ -60,6 +62,17 @@ export class GridPage implements OnInit{
             animate: true,
             direction: 'forward'
           });
+  }
+
+  goToApp(category) {
+
+    if (category.pageName) {
+      this.navCtrl.setRoot(category.pageName, {}, {
+            animate: true,
+            direction: 'forward'
+          });
+    }
+
   }
 
 }

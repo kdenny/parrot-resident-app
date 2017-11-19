@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers/providers';
-import { SplashPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -36,7 +35,11 @@ export class LoginPage {
   }
 
   doLogin() {
-      this.navCtrl.push(SplashPage);
+      this.navCtrl.setRoot('GridPage', {}, {
+        animate: true,
+        direction: 'forward'
+      });
+      console.log("Login")
   }
 
   // Attempt to login in through our User service
